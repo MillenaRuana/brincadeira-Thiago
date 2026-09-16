@@ -7,9 +7,7 @@ const botaoNao = document.getElementById("nao");
 // ============================
 
 botaoSim.addEventListener("click", function () {
-
     alert("EU SABIA! 😂❤️");
-
 });
 
 
@@ -23,73 +21,65 @@ botaoNao.addEventListener("mouseenter", fugir);
 
 // Celular
 botaoNao.addEventListener("touchstart", function (event) {
-
     event.preventDefault();
-
     fugir();
+});
 
+
+// Também impede o clique
+botaoNao.addEventListener("click", function (event) {
+    event.preventDefault();
+    fugir();
 });
 
 
 // ============================
-// FAZER O NÃO FUGIR
+// FUNÇÃO PARA FAZER O NÃO FUGIR
 // ============================
 
 function fugir() {
 
-    const margem = 20;
-
-    const larguraTela = window.innerWidth;
-    const alturaTela = window.innerHeight;
-
     const larguraBotao = botaoNao.offsetWidth;
     const alturaBotao = botaoNao.offsetHeight;
 
+    const larguraTela = document.documentElement.clientWidth;
+    const alturaTela = document.documentElement.clientHeight;
 
-    // Descobre o espaço REAL disponível
+    const margem = 15;
 
-    const espacoX =
-        larguraTela - larguraBotao - (margem * 2);
+    const limiteX = Math.max(
+        margem,
+        larguraTela - larguraBotao - margem
+    );
 
-    const espacoY =
-        alturaTela - alturaBotao - (margem * 2);
-
-
-    // Se não houver espaço suficiente,
-    // não deixa o botão sair da tela.
+    const limiteY = Math.max(
+        margem,
+        alturaTela - alturaBotao - margem
+    );
 
     const novaX =
         margem +
-        Math.random() * Math.max(0, espacoX);
-
+        Math.random() * Math.max(0, limiteX - margem);
 
     const novaY =
         margem +
-        Math.random() * Math.max(0, espacoY);
-
-
-    // O botão passa a ocupar a tela inteira
+        Math.random() * Math.max(0, limiteY - margem);
 
     botaoNao.style.position = "fixed";
-
-    botaoNao.style.transform = "none";
 
     botaoNao.style.left = novaX + "px";
 
     botaoNao.style.top = novaY + "px";
 
-    botaoNao.style.zIndex = "99999";
+    botaoNao.style.transform = "none";
+
+    botaoNao.style.margin = "0";
+
+    botaoNao.style.zIndex = "999999";
+
+    botaoNao.style.display = "block";
+
+    botaoNao.style.visibility = "visible";
+
+    botaoNao.style.opacity = "1";
 }
-
-
-// ============================
-// SE CONSEGUIR CLICAR 😂
-// ============================
-
-botaoNao.addEventListener("click", function (event) {
-
-    event.preventDefault();
-
-    fugir();
-
-});
