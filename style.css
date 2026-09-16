@@ -1,0 +1,313 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #ffd6e3,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #f7c6d8,
+            transparent 40%
+        ),
+        #fff7fa;
+
+    color: #3d2930;
+
+    overflow: hidden;
+}
+
+
+/* CARD */
+
+.container {
+    width: 100%;
+    max-width: 520px;
+
+    padding: 55px 45px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 60px rgba(100, 40, 60, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* TÍTULO */
+
+h1 {
+    margin: 0 0 15px;
+
+    font-family: Georgia, serif;
+
+    font-size: 40px;
+
+    line-height: 1.2;
+
+    color: #7d304b;
+}
+
+
+/* TEXTO */
+
+p {
+    margin: 0;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    color: #795b66;
+}
+
+
+/* PERGUNTA */
+
+h2 {
+    margin-top: 35px;
+    margin-bottom: 25px;
+
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    color: #422a33;
+}
+
+
+/* ÁREA DOS BOTÕES */
+
+.botoes {
+    position: relative;
+
+    width: 100%;
+    height: 180px;
+
+    margin-top: 20px;
+}
+
+
+/* BOTÕES */
+
+button {
+    position: absolute;
+
+    padding: 15px 30px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* SIM */
+
+#sim {
+    left: 25%;
+    top: 70px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        135deg,
+        #a83d61,
+        #c95578
+    );
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(168, 61, 97, 0.3);
+}
+
+#sim:hover {
+    transform:
+        translateX(-50%)
+        scale(1.08);
+}
+
+
+/* NÃO */
+
+#nao {
+    left: 75%;
+    top: 70px;
+
+    transform: translateX(-50%);
+
+    background: white;
+
+    color: #745762;
+
+    border: 1px solid #ead5dc;
+
+    z-index: 99999;
+}
+
+
+/* CORAÇÃO */
+
+.coracao {
+    position: fixed;
+
+    top: 10%;
+    left: 15%;
+
+    font-size: 35px;
+
+    color: #d66a88;
+
+    opacity: 0.35;
+
+    animation: flutuar 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* ANIMAÇÃO */
+
+@keyframes flutuar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 40px 22px;
+        border-radius: 24px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    h2 {
+        margin-top: 28px;
+        margin-bottom: 15px;
+        font-size: 25px;
+    }
+
+    .botoes {
+        height: 150px;
+    }
+
+    button {
+        padding: 13px 24px;
+        font-size: 15px;
+    }
+
+    #sim {
+        left: 25%;
+        top: 60px;
+    }
+
+    #nao {
+        left: 75%;
+        top: 60px;
+    }
+
+    .coracao {
+        top: 5%;
+        left: 8%;
+        font-size: 28px;
+    }
+}
+
+
+/* =========================
+   CELULARES PEQUENOS
+========================= */
+
+@media (max-width: 380px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 32px 18px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
